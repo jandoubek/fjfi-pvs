@@ -13,7 +13,8 @@ Skoda-liby
 
 Eduard Riedl
 eda na edariedl tecka cz
-SPS VOS pribram hlavni zdroj seminarek
+ČVUT FJFI
+Ruby a Ruby on Rails
 
 Petr Ujezdsky
 petr tecka ujezdsky na gmail tecka com
