@@ -1,4 +1,4 @@
-# Seznam vsech clenu PVS
+﻿# Seznam vsech clenu PVS
 
 Jan Doubek
 mr tecka jan tecka doubek na gmail tecka com
@@ -21,7 +21,7 @@ petr tecka ujezdsky na gmail tecka com
 ČVUT FJFI
 Java, C#
 
-Ondrej Subrt
+Ondrej Subrt (Snake66GH)
 ondra tecka subrt na seznam tecka cz
 Student na FJFI. Web: http://entermatrix.wz.cz
 
