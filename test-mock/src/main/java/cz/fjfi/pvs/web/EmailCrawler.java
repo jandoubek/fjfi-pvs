@@ -9,10 +9,16 @@ import java.util.Set;
 import cz.fjfi.pvs.parser.EmailSearch;
 import cz.fjfi.pvs.parser.UrlSearch;
 
-public class EmailCrawler {	
+public class EmailCrawler {
+	
+	private static String rootUrl;
+	
+	private static Set<String> alreadyVisitedUrls;
+	
+	private static Set<String> notVisitedUrls;
 		
 	public static void main(String[] args){
-		String rootUrl = args[0];
+		rootUrl = args[0];
 //		String rootUrl = "http://www.evald.cz/";
 //		String rootUrl = "http://www.lucerna.cz/kino.php";
 //		String rootUrl = "http://www.biooko.net/cz/";
@@ -41,15 +47,11 @@ public class EmailCrawler {
 					Set<String> anchoredUrls = UrlSearch.getUrls(urlsHtml);
 //					System.out.println(anchoredUrls);
 					//Validate them and keep them for next searches
-					for (String anchoredURL : anchoredUrls) {
-						if(anchoredURL.contains(rootUrl)){
-							if(!alreadyVisitedUrls.contains(anchoredURL)){
-								discoveredUrls.add(anchoredURL);
-							}
-						}
-					}
+					
 					//Search the HTML for emails
 					emails.addAll(EmailSearch.getEmails(urlsHtml));
+					
+					discoveredUrls = getValidUrlsToVisit(anchoredUrls);
 					
 				} catch (MalformedURLException e) {					 
 					e.printStackTrace();
@@ -64,5 +66,19 @@ public class EmailCrawler {
 			System.out.println(email);
 		}
 		
-	}	
+	}
+	
+	private static Set<String> getValidUrlsToVisit(Set<String> anchoredUrls){
+		Set<String> discoveredUrls = new HashSet<String>();
+		
+		for (String anchoredURL : anchoredUrls) {
+			if(anchoredURL.contains(rootUrl)){
+				if(!alreadyVisitedUrls.contains(anchoredURL)){
+					discoveredUrls.add(anchoredURL);
+				}
+			}
+		}
+		
+		return discoveredUrls;
+	}
 }
