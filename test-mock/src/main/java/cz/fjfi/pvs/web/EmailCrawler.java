@@ -14,9 +14,7 @@ public class EmailCrawler {
 	private static String rootUrl;
 	
 	private static Set<String> alreadyVisitedUrls;
-	
-	private static Set<String> notVisitedUrls;
-		
+				
 	public static void main(String[] args){
 		rootUrl = args[0];
 //		String rootUrl = "http://www.evald.cz/";

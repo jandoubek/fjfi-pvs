@@ -1,5 +1,6 @@
 package cz.fjfi.pvs.web;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.HashSet;
@@ -37,7 +38,9 @@ public class EmailCrawlerSophisticated {
 //		String rootUrl = "http://www.biooko.net/cz/";
 //		String rootUrl = "http://www.biooko.net/cz/static/kontakt/";
 		
-		rootUrl = args[0];
+		if (args.length == 1) {
+			rootUrl = args[0];
+		}
 		
 		if (rootUrl == null) {
 			loadProperties();
@@ -54,7 +57,7 @@ public class EmailCrawlerSophisticated {
 	protected static void loadProperties() {
 		Properties props = new Properties();
 		try {
-			props.load(EmailCrawlerSophisticated.class.getResourceAsStream("emailCrawlerProperties.properties"));
+			props.load(EmailCrawlerSophisticated.class.getResourceAsStream("../../../../emailCrawlerProperties.properties"));
 			rootUrl = props.getProperty("rootUrl");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

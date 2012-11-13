@@ -3,10 +3,7 @@ package cz.fjfi.pvs.threads;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 
 public class ProducerConsumerLogging {
 
@@ -17,14 +14,7 @@ public class ProducerConsumerLogging {
 	static Logger logger = Logger.getLogger(ProducerConsumerLogging.class);
 
 	public static void main(String[] args) {
-		
-		BasicConfigurator.configure();
-		
-		
-		String logPattern = "%5p [%t] (%F:%L) - %m%n";		
-		PatternLayout pl = new PatternLayout(logPattern);
-		ConsoleAppender ca = new ConsoleAppender(pl);
-		logger.addAppender(ca);
+				
 		logger.info("Starting the application");
 		
 		
